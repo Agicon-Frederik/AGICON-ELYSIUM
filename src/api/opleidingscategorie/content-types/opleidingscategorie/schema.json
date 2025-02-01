@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opleidingscategorieen",
+  "info": {
+    "singularName": "opleidingscategorie",
+    "pluralName": "opleidingscategorieen",
+    "displayName": "Opleidingscategorie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Categorie": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "Omschrijving": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    },
+    "opleidingen": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opleiding.opleiding",
+      "mappedBy": "opleidingscategorie"
+    },
+    "Afbeelding": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    }
+  }
+}

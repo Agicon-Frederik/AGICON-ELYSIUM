@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opleidingssessies",
+  "info": {
+    "singularName": "opleidingssessie",
+    "pluralName": "opleidingssessies",
+    "displayName": "Opleidingssessie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Naam": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "deelnemers": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
+    },
+    "opleiding": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::opleiding.opleiding",
+      "inversedBy": "opleidingssessies"
+    },
+    "start": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "datetime"
+    }
+  }
+}

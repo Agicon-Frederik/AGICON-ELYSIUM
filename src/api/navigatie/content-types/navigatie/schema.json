@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navigaties",
+  "info": {
+    "singularName": "navigatie",
+    "pluralName": "navigaties",
+    "displayName": "Navigatie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Naam": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "pagina": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pagina.pagina"
+    },
+    "Volgorde": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
+    },
+    "Locatie": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Header",
+        "Footer",
+        "Allebei"
+      ],
+      "default": "Header"
+    }
+  }
+}
