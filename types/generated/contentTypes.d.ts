@@ -369,6 +369,39 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiA11YLeadA11YLead extends Struct.CollectionTypeSchema {
+  collectionName: 'a11y_leads';
+  info: {
+    displayName: 'A11yLead';
+    pluralName: 'a11y-leads';
+    singularName: 'a11y-lead';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Audited: Schema.Attribute.Boolean;
+    Bedrijf: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::a11y-lead.a11y-lead'
+    > &
+      Schema.Attribute.Private;
+    Naam: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    SalesNavigatorLead: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Website: Schema.Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1323,6 +1356,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::a11y-lead.a11y-lead': ApiA11YLeadA11YLead;
       'api::global.global': ApiGlobalGlobal;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::navigatie.navigatie': ApiNavigatieNavigatie;

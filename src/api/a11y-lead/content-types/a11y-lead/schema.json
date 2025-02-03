@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "a11y_leads",
+  "info": {
+    "singularName": "a11y-lead",
+    "pluralName": "a11y-leads",
+    "displayName": "A11yLead"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Naam": {
+      "type": "string"
+    },
+    "Bedrijf": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "SalesNavigatorLead": {
+      "type": "boolean"
+    },
+    "Website": {
+      "type": "string"
+    },
+    "Audited": {
+      "type": "boolean"
+    }
+  }
+}
