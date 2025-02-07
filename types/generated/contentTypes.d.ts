@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiA11YLeadA11YLead extends Struct.CollectionTypeSchema {
   collectionName: 'a11y_leads';
   info: {
+    description: '';
     displayName: 'A11yLead';
     pluralName: 'a11y-leads';
     singularName: 'a11y-lead';
@@ -393,12 +394,46 @@ export interface ApiA11YLeadA11YLead extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     Naam: Schema.Attribute.String;
+    Notities: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
+    Referral: Schema.Attribute.String;
     SalesNavigatorLead: Schema.Attribute.Boolean;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Website: Schema.Attribute.String;
+  };
+}
+
+export interface ApiCrawledPageCrawledPage extends Struct.CollectionTypeSchema {
+  collectionName: 'crawled_pages';
+  info: {
+    displayName: 'CrawledPages';
+    pluralName: 'crawled-pages';
+    singularName: 'crawled-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    a_11_y_lead: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::a11y-lead.a11y-lead'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crawled-page.crawled-page'
+    > &
+      Schema.Attribute.Private;
+    Pages: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1357,6 +1392,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::a11y-lead.a11y-lead': ApiA11YLeadA11YLead;
+      'api::crawled-page.crawled-page': ApiCrawledPageCrawledPage;
       'api::global.global': ApiGlobalGlobal;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::navigatie.navigatie': ApiNavigatieNavigatie;

@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crawled_pages",
+  "info": {
+    "singularName": "crawled-page",
+    "pluralName": "crawled-pages",
+    "displayName": "CrawledPages"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "a_11_y_lead": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::a11y-lead.a11y-lead"
+    },
+    "Pages": {
+      "type": "json"
+    }
+  }
+}

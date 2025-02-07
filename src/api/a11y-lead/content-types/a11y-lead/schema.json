@@ -4,7 +4,8 @@
   "info": {
     "singularName": "a11y-lead",
     "pluralName": "a11y-leads",
-    "displayName": "A11yLead"
+    "displayName": "A11yLead",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -28,6 +29,12 @@
     },
     "Audited": {
       "type": "boolean"
+    },
+    "Notities": {
+      "type": "text"
+    },
+    "Referral": {
+      "type": "string"
     }
   }
 }

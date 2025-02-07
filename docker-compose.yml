@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  strapi:
+    container_name: strapi
+    build: .
+    ports:
+      - "1337:1337"
+    volumes:
+      - ./public/uploads:/app/public/uploads
+      - ./database:/app/database
+    env_file:
+      - .env # ✅ Loads all environment variables from .env
+    restart: always
